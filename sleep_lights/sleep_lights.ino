@@ -14,6 +14,7 @@
 #define PIN_LEDS        9
 #define PIN_MOTOR      13
 
+#define USE_DEBUG_LED false
 #define PIN_DEBUG_LED 26
 #define PIN_BUTTON 10
 
@@ -22,7 +23,7 @@
 
 #define WAVES 3
 
-#define DIM_TIME 1.0
+#define DIM_TIME 60.0
 
 struct RGB {
   uint8_t r;
@@ -240,7 +241,7 @@ void loop() {
       // event: button released
     }
   }
-  digitalWrite(PIN_DEBUG_LED, sleeping ? HIGH : LOW);
+  digitalWrite(PIN_DEBUG_LED, USE_DEBUG_LED && sleeping ? HIGH : LOW);
   
 
   // Get the current Unix timestamp and calculate elapsed time in minutes
